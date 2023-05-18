@@ -2582,6 +2582,10 @@ button,
   font-size: 20px;
 }
 
+.product-card__price span>p {
+  margin: 0;
+}
+
 .product-card__description {
   font-size: 14px;
   line-height: 1.1;

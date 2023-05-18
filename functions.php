@@ -52,5 +52,6 @@ add_theme_support( 'post-thumbnails', array('post'));
 function add_menu() {
     register_nav_menu( 'top', 'главное меню сайта' );
     register_nav_menu( 'bottom', 'меню в футере' );
+    register_nav_menu( 'side', 'сайд меню' );
 }
 ?>
