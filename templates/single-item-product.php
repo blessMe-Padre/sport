@@ -10,82 +10,15 @@ Template Post Type: post
             <section class="main">
                 <div class="container">
                     <div class="main__wrapper">
-                        <ul class="main__list">
-                            <!-- для корректной работы вложенных списков необходимо им дать класс "main__sub-list"(поддерживает любую вложенность) -->
-                            <li>
-                                <a href="#">Бассейн</a>
-                                <ul class="main__sub-list">
-                                    <li>
-                                        <a href="#">ссылка вложенная 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">ссылка вложенная 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">ссылка вложенная 3</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">ссылка вложенная4</a>
-                                        <ul class="main__sub-list">
-                                            <li>
-                                                <a href="#">ссылка вложенная 1</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">ссылка вложенная 2</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">ссылка вложенная 3</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">ссылка вложенная4</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Единоборства</a>
-                            </li>
-                            <li>
-                                <a href="#">Маски</a>
-                            </li>
-                            <li>
-                                <a href="#">Обувь для спорта</a>
-                            </li>
-                            <li>
-                                <a href="#">Одежда</a>
-                            </li>
-                            <li>
-                                <a href="#">Футбол</a>
-                            </li>
-                            <li>
-                                <a href="#">Фитнес</a>
-                            </li>
-                            <li>
-                                <a href="#">Хоккей</a>
-                            </li>
-                            <li>
-                                <a href="#">Единоборства</a>
-                            </li>
-                            <li>
-                                <a href="#">Маски</a>
-                            </li>
-                            <li>
-                                <a href="#">Обувь для спорта</a>
-                            </li>
-                            <li>
-                                <a href="#">Одежда</a>
-                            </li>
-                            <li>
-                                <a href="#">Футбол</a>
-                            </li>
-                            <li>
-                                <a href="#">Фитнес</a>
-                            </li>
-                            <li>
-                                <a href="#">Хоккей</a>
-                            </li>
-                        </ul>
+                    <nav class="main__list">
+              <?php wp_nav_menu([
+                'theme_location' => 'side',
+                'container' => '',
+                'menu_class' => '',
+                'menu_id' => ''
+              ]);
+              ?>
+            </nav>
                         <div class="main__content item-product">
                             <div class="product-gallery">
                                 <?php $loop = CFS()->get('foto');
