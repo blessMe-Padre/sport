@@ -31,10 +31,7 @@
       <div class="container">
         <div class="header__wrapper">
           <div class="header__logo">Classic sport</div>
-          <div class="header__search">
-            <input type="search" placeholder="поиск по товарам">
-            <button class="button header__search-btn" aria-label="поиск"><i class="icon-search"></i></button>
-          </div>
+          <?php get_search_form(); ?>
           <div class="header__link">
             <i class="icon-phone"></i>
             <a class="link" href="tel:+88888888888">8-888-888-88-88</a>
