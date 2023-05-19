@@ -2489,6 +2489,16 @@ button,
   color: #ffffff;
 }
 
+.sub-menu li a {
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.sub-menu li a:hover {
+  color: #ff1553;
+}
+
 .main__content-list {
   margin: 0;
   padding: 0;
