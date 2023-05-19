@@ -10,39 +10,30 @@ get_header();
       <section class="popular">
         <div class="container">
           <h2 class="title">топ категорий</h2>
+
           <div class="popular__slider">
             <ul class="popular__list swiper-wrapper">
-              <!-- ------------------------------------- -->
               <?php
-                $my_posts = get_posts( array(
-                'numberposts' => -1,
-                  'category' => 6,
-                  'orderby' => 'title',
-                  'order' => 'ASC',
-                  'post_type'   => 'post',
-                  'suppress_filters' => true,
-                ) );
+                $product_categories = get_terms( 'product_cat', ['hide_empty' => 0] );
 
-                foreach( $my_posts as $post ){
-                  setup_postdata( $post );
+                if ( ! empty( $product_categories ) && ! is_wp_error( $product_categories ) ) {
+                    foreach ( $product_categories as $product_category ) {
+                        $thumbnail_id = get_term_meta( $product_category->term_id, 'thumbnail_id', true ); 
+                        $image = wp_get_attachment_url( $thumbnail_id ); 
+                        echo '<li class="popular__item swiper-slide swiper-slide-active">';
+                        echo '<a href="' . esc_url( get_term_link( $product_category ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $product_category->name ) ) . '">';
+                        if ( $image ) {
+                            echo '<img width="345" height="400" src="' . esc_url( $image ) . '">';
+                        }
+                        echo '<p class="popular__item-text">' . esc_html( $product_category->name ) . '</p>';
+                        echo '</a>';
+                        echo '</li>';
+                    }
+                }
                 ?>
-
-              <li class="popular__item swiper-slide">
-                  <a href="<?php the_permalink(); ?>">
-                  <?php the_post_thumbnail( '' );  ?>
-                  <p class="popular__item-text"><?php the_title(); ?></p>
-                  </a>
-                  </li>
-                <?php
-                  }
-                wp_reset_postdata();
-              ?>
-
-              <!-- ------------------------------------- -->
             </ul>
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
-
           </div>
         </div>
       </section>

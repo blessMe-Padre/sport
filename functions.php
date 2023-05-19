@@ -54,4 +54,8 @@ function add_menu() {
     register_nav_menu( 'bottom', 'меню в футере' );
     register_nav_menu( 'side', 'сайд меню' );
 }
+
+if ( class_exists( 'WooCommerce' ) ) {
+    require_once(get_template_directory() . '/woocommers.php');
+    }
 ?>
