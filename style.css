@@ -2566,6 +2566,12 @@ button,
   font-weight: 600;
 }
 
+.category-card__price {
+  text-align: center;
+  font-weight: 600;
+  margin: 0;
+}
+
 .product-card {
   -webkit-box-shadow: rgba(34, 60, 80, 0.2) 4px 4px 8px 0px;
   box-shadow: rgba(34, 60, 80, 0.2) 4px 4px 8px 0px;

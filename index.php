@@ -5,7 +5,7 @@ Template Name: Главная страница
 get_header(); 
 ?>
 
-    <main>
+<main>
       <h1 class="visually-hidden">Classic sport - магазин спортивных товаров</h1>
       <section class="popular">
         <div class="container">
@@ -42,50 +42,49 @@ get_header();
         <div class="container">
           <h2 class="title">Категории товаров</h2>
           <div class="main__wrapper">
-            <nav class="main__list">
-              <?php wp_nav_menu([
-                'theme_location' => 'side',
-                'container' => '',
-                'menu_class' => '',
-                'menu_id' => ''
-              ]);
-              ?>
-            </nav>
-            <div class="main__content">
-              <ul class="main__content-list">
-                <!-- ------------------------------------ -->
-                <?php
-                    $my_posts = get_posts( array(
-                    'numberposts' => -1,
-                      'category' => 4,
-                      'orderby' => 'title',
-                      'order' => 'ASC',
-                      'post_type'   => 'post',
-                      'suppress_filters' => true,
-                    ) );
 
-                    foreach( $my_posts as $post ){
-                      setup_postdata( $post );
-                    ?>
-                    <!--  -->
-                    <li class="main__content-item category-card">
-                      <a href="<?php the_permalink(); ?>" class="category-card__wrapper">
-                        <div class="category-card__img">
-                        <?php the_post_thumbnail( '' );  ?>
-                        </div>
-                        <p class="category-card__text"><?php the_title(); ?></p>
-                      </a>
-                    </li>
-                      <!--  -->
-                    <?php
-                      }
-                    wp_reset_postdata();
-                  ?>
-                <!-- ------------------------------------ -->
-              </ul>
-            </div>
+          <nav class="main__list">
+            <?php wp_nav_menu([
+              'theme_location' => 'side',
+              'container' => '',
+              'menu_class' => '',
+              'menu_id' => '',
+              ]);
+            ?>
+            </nav>
+
+			<div class="main__content">
+			<ul class="main__content-list">
+      <?php
+        $args = array(
+            'post_type' => 'product',
+            'posts_per_page' => -1
+        );
+
+        $loop = new WP_Query( $args );
+        if ( $loop->have_posts() ) {
+            while ( $loop->have_posts() ) : $loop->the_post();
+                global $product;
+                echo '<li class="main__content-item category-card">';
+                echo '<a class="category-card__wrapper" href="'.get_permalink().'">';
+                echo woocommerce_get_product_thumbnail();
+                echo '<p class="category-card__text">'.get_the_title().'</p>';
+                echo '<p class="category-card__price">'.$product->get_price_html().'</p>';
+                echo '</a>';
+                woocommerce_template_loop_add_to_cart( $loop->post, $product );
+                echo '</li>';
+            endwhile;
+        } else {
+            echo __( 'No products found' );
+        }
+        wp_reset_postdata();
+        ?>
+
+			</ul>
+			</div>
           </div>
         </div>
       </section>
-    </main>
+</main>
+
 <?php get_footer(); ?>
