@@ -36,10 +36,10 @@
             <i class="icon-phone"></i>
             <a class="link" href="tel:+88888888888">8-888-888-88-88</a>
           </div>
-          <a href="#" class="header__cart">
-            <div class="header__cart-wrapper"><span>450</span> &#8381 <i class="icon-basket"></i></div>
-            <div class="cart-popup">
-              <p>Корзина пуста</p>
+          <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="header__cart">
+            <div class="header__cart-wrapper"><span><?php echo WC()->cart->get_cart_subtotal();?></span><i class="icon-basket"></i></div>
+            <div class="mini-card">
+              <?php the_widget( 'WC_Widget_Cart',  'title=')?>
             </div>
           </a>
         </div>
