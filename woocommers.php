@@ -62,3 +62,15 @@ function add_data_attributes_to_menu_links($atts, $item, $args) {
     return $atts;
 }
 add_filter('nav_menu_link_attributes', 'add_data_attributes_to_menu_links', 10, 3);
+
+
+// страница товара
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta ');
+
+// удаляет сайдбар со страницы товара
+add_action( 'wp', 'bbloomer_remove_sidebar_product_pages' );
+function bbloomer_remove_sidebar_product_pages() {
+if ( is_product() ) {
+remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+}
+}

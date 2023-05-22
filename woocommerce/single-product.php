@@ -20,6 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header(); ?>
+	<div class="main">
+		<div class="container">
 
 	<?php
 		/**
@@ -44,7 +46,7 @@ get_header(); ?>
 		 *
 		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
 		 */
-		do_action( 'woocommerce_after_main_content' );
+		do_action( 'woocommerce_after_main_content', 'woocommerce_template_single_meta' );
 	?>
 
 	<?php
@@ -55,7 +57,9 @@ get_header(); ?>
 		 */
 		do_action( 'woocommerce_sidebar' );
 	?>
-
+			
+			</div>
+	</div>
 <?php
 get_footer();
 
