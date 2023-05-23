@@ -73,4 +73,7 @@ function bbloomer_remove_sidebar_product_pages() {
 if ( is_product() ) {
 remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
 }
+if ( is_tax() ) {
+    remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+    }
 }
