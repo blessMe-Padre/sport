@@ -30,7 +30,11 @@
       </button>
       <div class="container">
         <div class="header__wrapper">
-          <div class="header__logo">Classic sport</div>
+          <div class="header__logo">
+            <a href="<?= home_url(); ?>">
+              <?php the_custom_logo(); ?>
+            </a>
+          </div>
           <?php get_search_form(); ?>
           <div class="header__link">
             <i class="icon-phone"></i>
