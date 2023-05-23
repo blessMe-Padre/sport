@@ -1882,37 +1882,6 @@ button.swiper-pagination-bullet {
   color: #15ab07;
 }
 
-@font-face {
-  font-style: normal;
-  font-weight: 400;
-  font-family: "Montserrat";
-  font-display: swap;
-  src: url("../fonts/Montserrat-Regular.woff2") format("woff2"), url("../fonts/Montserrat-Regular.woff") format("woff");
-}
-
-@font-face {
-  font-style: normal;
-  font-weight: 500;
-  font-family: "Montserrat";
-  font-display: swap;
-  src: url("../fonts/Montserrat-Medium.woff2") format("woff2"), url("../fonts/Montserrat-Medium.woff") format("woff");
-}
-
-@font-face {
-  font-style: normal;
-  font-weight: 600;
-  font-family: "Montserrat";
-  font-display: swap;
-  src: url("../fonts/Montserrat-SemiBold.woff2") format("woff2"), url("../fonts/Montserrat-SemiBold.woff") format("woff");
-}
-
-@font-face {
-  font-style: normal;
-  font-weight: 700;
-  font-family: "Montserrat";
-  font-display: swap;
-  src: url("../fonts/Montserrat-Bold.woff2") format("woff2"), url("../fonts/Montserrat-Bold.woff") format("woff");
-}
 
 *,
 *::before,
@@ -1932,7 +1901,7 @@ html {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  font-family: "Montserrat", "Arial", sans-serif;
+  font-family: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, helvetica, arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   color: #000000;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -2241,9 +2210,6 @@ button,
   z-index: 99;
   padding: 0 15px;
   border-radius: 15px;
-}
-
-.mini-card a {
   font-size: 14px;
 }
 
@@ -2412,6 +2378,7 @@ button,
   background-color: #ff1553;
   padding: 10px 10px;
   font-size: 14px;
+  line-height: 1.1;
 }
 
 .popular__item-img {
@@ -2961,6 +2928,8 @@ button,
 .woocommerce .widget_shopping_cart .buttons a,
 .woocommerce.widget_shopping_cart .buttons a {
   font-size: 16px;
+  display: block;
+  text-align: center;
 }
 
 .widget_shopping_cart_content {
@@ -3077,15 +3046,20 @@ button,
   padding: 0;
 }
 
+.products.columns-4 .star-rating {
+  display: none;
+}
+
 .products.columns-4 li {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 15px;
+  padding: 15px 15px 30px;
   margin: 0 20px 20px 0;
-  width: 280px;
+  width: 270px;
   position: relative;
   box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  text-align: center;
 }
 
 .products.columns-4 li a.button {
@@ -3095,9 +3069,9 @@ button,
   padding: 2px 5px;
   border: 1px solid #000000;
   border-radius: 3px;
-  margin-top: 20px;
   text-align: center;
   transition: all 0.3s ease;
+  margin-top: 15px;
 }
 
 .products.columns-4 li a.button:hover {
@@ -3143,13 +3117,19 @@ button,
 .product .type-product h2 {
   font-size: 18px;
   text-align: center;
-  min-height: 48px;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .woocommerce-LoopProduct-link h2 {
   font-size: 18px;
   text-align: center;
-  min-height: 48px;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .category-wrapper {
@@ -3198,6 +3178,10 @@ input {
 
 .product_meta a {
   text-decoration: underline;
+}
+
+.woocommerce-mini-cart-item {
+  margin-bottom: 10px;
 }
 
 @media (max-width: 1023px) {

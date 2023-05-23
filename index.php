@@ -74,35 +74,38 @@ get_header();
             ?>
             </nav>
 
-			<div class="main__content">
-			<ul class="main__content-list">
-      <?php
-          $parent_category = get_term_by( 'slug', 'top', 'product_cat' );
+          <ul class="main__content-list">
+              <?php
+                  $parent_category = get_term_by( 'slug', 'top', 'product_cat' );
 
-          if ( ! empty( $parent_category ) && ! is_wp_error( $parent_category ) ) {
-              $product_categories = get_terms( 'product_cat', ['hide_empty' => 0, 'parent' => $parent_category->term_id] );
-              if ( ! empty( $product_categories ) && ! is_wp_error( $product_categories ) ) {
-                  foreach ( $product_categories as $product_category ) {
-                      $thumbnail_id = get_term_meta( $product_category->term_id, 'thumbnail_id', true ); 
-                      $image = wp_get_attachment_url( $thumbnail_id ); 
-                      echo '<li class="main__content-item">';
-                      echo '<a href="' . esc_url( get_term_link( $product_category ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $product_category->name ) ) . '">';
-                      echo '<div class="main__content-img">';
-                      if ( $image ) {
-                          echo '<img width="345" height="400" src="' . esc_url( $image ) . '">';
+                  if ( ! empty( $parent_category ) && ! is_wp_error( $parent_category ) ) {
+                      $product_categories = get_terms( 'product_cat', ['hide_empty' => 0, 'parent' => $parent_category->term_id] );
+                      if ( ! empty( $product_categories ) && ! is_wp_error( $product_categories ) ) {
+                          foreach ( $product_categories as $product_category ) {
+                              $thumbnail_id = get_term_meta( $product_category->term_id, 'thumbnail_id', true ); 
+                              $image = wp_get_attachment_url( $thumbnail_id ); 
+                              echo '<li class="main__content-item">';
+                              echo '<a href="' . esc_url( get_term_link( $product_category ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $product_category->name ) ) . '">';
+                              echo '<div class="main__content-img">';
+                              if ( $image ) {
+                                  echo '<img width="345" height="400" src="' . esc_url( $image ) . '">';
+                              }
+                              echo '</div>';
+                              echo '<p class="">' . esc_html( $product_category->name ) . '</p>';
+                              echo '</a>';
+                              echo '</li>';
+                          }
                       }
-                      echo '</div>';
-                      echo '<p class="">' . esc_html( $product_category->name ) . '</p>';
-                      echo '</a>';
-                      echo '</li>';
                   }
-              }
-          }
-      ?>
+                ?>
+            </ul>
+        </div>
+        </div>
+      </section>
 
-			</ul>
-			</div>
-          </div>
+      <section>
+        <div class="container">
+          <?php the_content(); ?>
         </div>
       </section>
 </main>
