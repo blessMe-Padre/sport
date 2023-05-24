@@ -3186,18 +3186,6 @@ button,
   font-size: 32px;
 }
 
-/* 
-tr {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-th {
-  text-align: left;
-  margin-right: 30px;
-} */
-
 .swiper-pagination.swiper-pagination-bullets {
   bottom: -50px;
 }
@@ -3226,6 +3214,20 @@ input {
 
 .woocommerce-mini-cart-item {
   margin-bottom: 10px;
+}
+
+/* Оформление заказа */
+.woocommerce-info {
+  border-top-color: #3d4b55;
+}
+
+.woocommerce-info::before {
+  color: #3d4b55;
+}
+
+.woocommerce #payment #place_order,
+.woocommerce-page #payment #place_order {
+  background-color: #3d4b55;
 }
 
 @media (max-width: 1023px) {

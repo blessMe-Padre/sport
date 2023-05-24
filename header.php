@@ -7,17 +7,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Classic sport">
   <title>
-    <?php
-			if(is_404()) {
-				echo 'Ошибка 404';
-			}
-            if(is_category()) {
-                single_cat_title('Рубрика: ');
-            }
-            else {
-				the_title();
-			}
-		?>
+      <?php
+      if(is_404()) {
+        echo 'Ошибка 404';
+      }
+
+      elseif(is_category()) {
+        single_cat_title('Рубрика: ');
+      }
+
+      elseif(is_front_page()){
+        echo 'Classic Sport';
+      }
+      
+      else {
+        the_title();
+      }
+    ?>
     </title>
   <?php wp_head(); ?>
 </head>
