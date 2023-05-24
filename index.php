@@ -55,7 +55,7 @@ get_header();
       </section>
 
       <section class="sport">
-        <p class="sport__title">все для спорта</p>
+        <h2 class="sport__title">все для спорта</h2>
       </section>
 
       <section class="main">

@@ -2189,7 +2189,9 @@ button,
 }
 
 .header__cart:hover .mini-card {
-  display: block;
+  /* display: block; */
+  opacity: 1;
+  visibility: visible;
 }
 
 .header__cart a {
@@ -2204,13 +2206,16 @@ button,
   position: absolute;
   top: 25px;
   right: 0;
-  display: none;
+  /* display: none; */
   width: 320px;
   background-color: #29262a;
   z-index: 99;
   padding: 0 15px;
   border-radius: 15px;
   font-size: 14px;
+  transition: opacity 0.6s ease;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .button {
@@ -2361,6 +2366,7 @@ button,
   list-style: none;
   width: 100%;
   min-width: 0;
+  padding: 10px 0;
 }
 
 .popular__item {
@@ -2368,6 +2374,12 @@ button,
   min-width: 0;
   max-width: 100%;
   height: 350px;
+  padding: 10px;
+  transition: all 0.3s ease-in;
+}
+
+.popular__item:hover {
+  box-shadow: 0px 2px 10px 2px rgba(34, 60, 80, 0.2);
 }
 
 .popular__item-text {
@@ -2379,6 +2391,9 @@ button,
   padding: 10px 10px;
   font-size: 14px;
   line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .popular__item-img {
@@ -2501,6 +2516,11 @@ button,
 
 .main__content-item {
   text-align: center;
+  transition: all 0.3s ease-in;
+}
+
+.main__content-item:hover {
+  box-shadow: 0px 2px 10px 2px rgba(34, 60, 80, 0.2);
 }
 
 .main__content-item p {
@@ -2850,7 +2870,7 @@ button,
     position: absolute;
     width: 100%;
     height: 100vh;
-    top: 0;
+    top: -30px;
     left: 0;
     bottom: 0;
     right: 0;
@@ -2921,6 +2941,14 @@ button,
 .sport__title {
   color: #ffffff;
   font-size: 60px;
+  line-height: 1.1;
+  font-weight: 500;
+}
+
+@media (max-width: 767px) {
+  .sport__title {
+    font-size: 32px;
+  }
 }
 
 /* woocommerce */
@@ -3019,6 +3047,21 @@ button,
   background-color: transparent;
 }
 
+.woocommerce-cart-form input.minus {
+  background: none;
+  font-size: 15px;
+}
+
+.woocommerce-cart-form input.plus {
+  background: none;
+  font-size: 15px;
+}
+
+.woocommerce-cart-form__cart-item .quantity {
+  display: block;
+  width: 60px;
+}
+
 .minus,
 .plus {
   cursor: pointer;
@@ -3086,7 +3129,7 @@ button,
 
 .product.type-product .onsale {
   position: absolute;
-  top: 10px;
+  top: 0;
   right: 10px;
   background-color: #ff1553;
   color: #ffffff;
@@ -3143,6 +3186,7 @@ button,
   font-size: 32px;
 }
 
+/* 
 tr {
   display: flex;
   align-items: center;
@@ -3152,7 +3196,7 @@ tr {
 th {
   text-align: left;
   margin-right: 30px;
-}
+} */
 
 .swiper-pagination.swiper-pagination-bullets {
   bottom: -50px;
