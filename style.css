@@ -2346,12 +2346,14 @@ button,
 
 .popular {
   padding: 60px 0;
+  position: relative;
 }
 
 .popular__slider {
   min-width: 0;
   width: 100%;
   overflow: hidden;
+  padding: 0 5px;
 }
 
 .popular__list {
@@ -2434,12 +2436,26 @@ button,
 
 .main__list li {
   position: relative;
-  padding: 5px 10px;
+  padding: 5px 5px 5px 10px;
 }
 
 .main__list a {
   display: block;
   font-weight: 600;
+}
+
+.main__list--main {
+  background-color: #83898d;
+  padding-bottom: 30px;
+  border-radius: 5px;
+}
+
+
+.main__list--main a {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+  padding-left: 20px;
 }
 
 .sub-menu {
@@ -2511,7 +2527,14 @@ button,
   display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 280px));
+  justify-content: center;
   gap: 30px;
+}
+
+@media (max-width: 767px) {
+  .main__content-list {
+    justify-items: center;
+  }
 }
 
 .main__content-item {
@@ -2935,7 +2958,6 @@ button,
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 100px 0;
 }
 
 .sport__title {
@@ -3187,7 +3209,7 @@ button,
 }
 
 .swiper-pagination.swiper-pagination-bullets {
-  bottom: -50px;
+  bottom: 25px;
 }
 
 .swiper-pagination-bullet {
@@ -3228,6 +3250,29 @@ input {
 .woocommerce #payment #place_order,
 .woocommerce-page #payment #place_order {
   background-color: #3d4b55;
+}
+
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit.alt,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button.alt,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button.alt,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit.alt,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button.alt,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button.alt,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button.alt {
+  background-color: #3d4b55;
+}
+
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit.alt:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) a.button.alt:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) button.button.alt:hover,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) input.button.alt:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce #respond input#submit.alt:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button.alt:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button.alt:hover,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce input.button.alt:hover {
+  background-color: #3d4b55;
+  opacity: 0.8;
 }
 
 @media (max-width: 1023px) {
@@ -3336,4 +3381,46 @@ p.stars.selected a:not(.active):before {
   opacity: 1;
 }
 
-/**
+
+/* Стили комментариев*/
+
+.comment-form-comment {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Мой аккаунт */
+
+.woocommerce-MyAccount-navigation ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 20px;
+}
+
+.woocommerce-MyAccount-navigation li {
+  margin: 0 20px 20px 0;
+}
+
+.page-wrapper {
+  display: grid;
+  grid-template-columns: 200px 80%;
+  gap: 30px;
+}
+
+.page-wrapper__menu {
+  margin-top: 160px;
+}
+
+@media (max-width: 767px) {
+  .page-wrapper {
+    display: block;
+  }
+
+  .page-wrapper__menu {
+    margin-top: 0;
+  }
+
+}

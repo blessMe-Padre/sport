@@ -44,7 +44,7 @@
           <?php get_search_form(); ?>
           <div class="header__link">
             <i class="icon-phone"></i>
-            <a class="link" href="tel:+88888888888">8-888-888-88-88</a>
+            <a class="link" href="tel:88888888888">8-888-888-88-88</a>
           </div>
           <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="header__cart">
             <div class="header__cart-wrapper"><span><?php echo WC()->cart->get_cart_subtotal();?></span><i class="icon-basket"></i></div>
