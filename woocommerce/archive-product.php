@@ -62,7 +62,7 @@ if ( woocommerce_product_loop() ) {
 	do_action( 'woocommerce_before_shop_loop' );
 	?>
 	<div class="category-wrapper">
-		<nav class="main__list">
+		<nav class="main__list main__list--main">
             <?php wp_nav_menu([
               'theme_location' => 'side',
               'container' => '',

@@ -11,12 +11,12 @@
           ?>
         </nav>
           <div class="footer__column">
-            <p class="footer__text">Classic Sport - все для спорта</p>
+            <p class="footer__text"><?php the_field('slogan'); ?></p>
             <address>
-              г. Владивосток ул. уткинская 9 кв. 8
+            <?php the_field('address'); ?>
             </address>
             <div class="social">
-              <a href="tel:+88888888888">
+              <a href="tel:<?php the_field('phone-robot'); ?>">
                 <i class="icon-phone"></i>
               </a>
               <a href="tel:tel:+88888888888">
