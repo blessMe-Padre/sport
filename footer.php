@@ -11,15 +11,12 @@
           ?>
         </nav>
           <div class="footer__column">
-            <p class="footer__text"><?php the_field('slogan'); ?></p>
-            <address>
-            <?php the_field('address'); ?>
-            </address>
+            <p class="footer__text"><?php echo nl2br(get_theme_mod('footer_text')); ?></p>
             <div class="social">
-              <a href="tel:<?php the_field('phone-robot'); ?>">
+              <a href="tel:+79502812392">
                 <i class="icon-phone"></i>
               </a>
-              <a href="tel:tel:+88888888888">
+              <a href="tel:+79502812392">
                 <i class="icon-whatsapp"></i>
               </a>
               <a href="#">
