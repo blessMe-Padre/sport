@@ -117,4 +117,22 @@ function lw_loop_shop_per_page( $products ) {
  $products = 9;
  return $products;
 }
+
+// регистация сайдбара
+
+add_action( 'widgets_init', 'register_my_widgets' );
+function register_my_widgets(){
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Сайдбар для фильтра', 'sport' ),
+		'id'            => "sidebar-filter",
+		'description'   => '',
+		'class'         => '',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => "</div>\n",
+		'before_title'  => '<h3 class="widgettitle">',
+		'after_title'   => "</h3>",
+
+	) );
+}
 ?>

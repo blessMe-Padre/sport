@@ -31,7 +31,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php wc_query_string_form_fields( null, array( 'orderby', 'submit', 'paged', 'product-page' ) ); ?>
 	</form>
 	<div class="category-filter__item">
-		sidebar
+		<?php if ( ! dynamic_sidebar('sidebar-filter') ) : ?>
+			<?php dynamic_sidebar('sidebar-filter') ?>
+		<?php endif; ?>
 	</div>
 	
 	<button class="category-filter-button"><i class="icon-switch"></i></button>
