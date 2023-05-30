@@ -3207,7 +3207,7 @@ button,
 .category-wrapper {
   display: grid;
   grid-template-columns: 200px 1fr;
-  gap: 20px;
+  gap: 60px;
   margin-top: 30px;
 }
 
@@ -3489,7 +3489,7 @@ p.stars.selected a:not(.active):before {
   display: grid;
   grid-template-columns: 200px 1fr;
   gap: 20px;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .category-filter__item {
@@ -3552,7 +3552,6 @@ p.stars.selected a:not(.active):before {
   text-decoration: underline;
 }
 
-
 /* range slider */
 
 .wc-block-price-slider {
@@ -3568,6 +3567,17 @@ p.stars.selected a:not(.active):before {
   margin: 0 15px 0 0;
 }
 
+.wc-block-components-price-slider__actions {
+  position: relative;
+}
+
+.wc-block-components-filter-reset-button {
+  position: absolute;
+  top: 5px;
+  right: -55px;
+  order: 1;
+}
+
 @media (max-width: 767px) {
   .wc-block-price-filter {
     display: block;
@@ -3577,4 +3587,11 @@ p.stars.selected a:not(.active):before {
     width: 100%;
     margin: 0 15px 20px 0;
   }
+
+  .wc-block-components-filter-reset-button {
+    top: 5px;
+    left: -15px;
+    order: 1;
+  }
+
 }
