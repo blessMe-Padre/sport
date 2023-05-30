@@ -70,6 +70,30 @@ get_header();
 
           <section class="main">
               <h2 class="title">Категории товаров</h2>
+              <button class="category-filter-button category-filter-button--bottom"><i class="icon-switch"></i></button>
+              <section class="hidden-category">
+                <?php
+                  $args = array(
+                    'taxonomy'     => 'product_cat',
+                    'orderby'      => 'name',
+                    'show_count'   => 0,
+                    'pad_counts'   => 0,
+                    'hierarchical' => 1,
+                    'title_li'     => '',
+                    'hide_empty'   => 0
+                  );
+
+                  $all_categories = get_terms( $args );
+                  echo '<ul>';
+                  foreach ($all_categories as $cat) {
+                    if($cat->category_parent == 0) {
+                      $category_id = $cat->term_id;       
+                      echo '<li>'. '<a href="'. get_term_link($cat->slug, 'product_cat') .'">'. $cat->name .'</a></li>';
+                    }       
+                  }
+                  echo '</ul>';
+                ?>
+              </section>
               <ul class="main__content-list">
                   <?php
                       $parent_category = get_term_by( 'slug', 'top', 'product_cat' );

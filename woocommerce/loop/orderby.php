@@ -20,12 +20,42 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<form class="woocommerce-ordering" method="get">
-	<select name="orderby" class="orderby" aria-label="<?php esc_attr_e( 'Shop order', 'woocommerce' ); ?>">
-		<?php foreach ( $catalog_orderby_options as $id => $name ) : ?>
-			<option value="<?php echo esc_attr( $id ); ?>" <?php selected( $orderby, $id ); ?>><?php echo esc_html( $name ); ?></option>
-		<?php endforeach; ?>
-	</select>
-	<input type="hidden" name="paged" value="1" />
-	<?php wc_query_string_form_fields( null, array( 'orderby', 'submit', 'paged', 'product-page' ) ); ?>
-</form>
+<div class="category-filter">
+	<form class="woocommerce-ordering" method="get">
+		<select name="orderby" class="orderby" aria-label="<?php esc_attr_e( 'Shop order', 'woocommerce' ); ?>">
+			<?php foreach ( $catalog_orderby_options as $id => $name ) : ?>
+				<option value="<?php echo esc_attr( $id ); ?>" <?php selected( $orderby, $id ); ?>><?php echo esc_html( $name ); ?></option>
+			<?php endforeach; ?>
+		</select>
+		<input type="hidden" name="paged" value="1" />
+		<?php wc_query_string_form_fields( null, array( 'orderby', 'submit', 'paged', 'product-page' ) ); ?>
+	</form>
+	<div class="category-filter__item">
+		sidebar
+	</div>
+	
+	<button class="category-filter-button"><i class="icon-switch"></i></button>
+</div>
+<section class="hidden-category">
+	<?php
+		$args = array(
+			'taxonomy'     => 'product_cat',
+			'orderby'      => 'name',
+			'show_count'   => 0,
+			'pad_counts'   => 0,
+			'hierarchical' => 1,
+			'title_li'     => '',
+			'hide_empty'   => 0
+		);
+
+		$all_categories = get_terms( $args );
+		echo '<ul>';
+		foreach ($all_categories as $cat) {
+			if($cat->category_parent == 0) {
+				$category_id = $cat->term_id;       
+				echo '<li>'. '<a href="'. get_term_link($cat->slug, 'product_cat') .'">'. $cat->name .'</a></li>';
+			}       
+		}
+		echo '</ul>';
+	?>
+</section>

@@ -16,23 +16,21 @@
  */
 
 defined( 'ABSPATH' ) || exit;
-
 get_header();
 ?>
+
 <div class="main">
 	<div class="container">
-<?php
-
-/**
- * Hook: woocommerce_before_main_content.
- *
- * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
- * @hooked woocommerce_breadcrumb - 20
- * @hooked WC_Structured_Data::generate_website_data() - 30
- */
-do_action( 'woocommerce_before_main_content' );
-
-?>
+	<?php
+	/**
+	 * Hook: woocommerce_before_main_content.
+	 *
+	 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+	 * @hooked woocommerce_breadcrumb - 20
+	 * @hooked WC_Structured_Data::generate_website_data() - 30
+	 */
+	do_action( 'woocommerce_before_main_content' );
+	?>
 
 <header class="woocommerce-products-header">
 	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
@@ -49,17 +47,18 @@ do_action( 'woocommerce_before_main_content' );
 	do_action( 'woocommerce_archive_description' );
 	?>
 </header>
-<?php
-if ( woocommerce_product_loop() ) {
 
-	/**
-	 * Hook: woocommerce_before_shop_loop.
-	 *
-	 * @hooked woocommerce_output_all_notices - 10
-	 * @hooked woocommerce_result_count - 20
-	 * @hooked woocommerce_catalog_ordering - 30
-	 */
-	do_action( 'woocommerce_before_shop_loop' );
+	<?php
+		if ( woocommerce_product_loop() ) {
+
+			/**
+			 * Hook: woocommerce_before_shop_loop.
+			 *
+			 * @hooked woocommerce_output_all_notices - 10
+			 * @hooked woocommerce_result_count - 20
+			 * @hooked woocommerce_catalog_ordering - 30
+			 */
+			do_action( 'woocommerce_before_shop_loop' );
 	?>
 	<div class="category-wrapper">
 		<nav class="main__list main__list--main">
@@ -72,8 +71,6 @@ if ( woocommerce_product_loop() ) {
             ?>
         </nav>
 		<div class="category-wrapper__list">
-22222222222222222222333333333333333333333333333444444444444444444444455555555555555555555555
-<?php woocommerce_pagination(); ?>
 			<?php
 
 			woocommerce_product_loop_start();
@@ -121,10 +118,10 @@ if ( woocommerce_product_loop() ) {
 		 */
 		do_action( 'woocommerce_sidebar' );
 		?>
-			</div>
 	</div>
 </div>
 </div>
+
 <?php
 get_footer();
 ?>
