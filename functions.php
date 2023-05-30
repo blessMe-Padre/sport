@@ -110,4 +110,11 @@ function dco_customize_register_header($wp_customize) {
     ));
 }
 
+// Change the Number of WooCommerce Products Displayed Per Page
+add_filter( 'loop_shop_per_page', 'lw_loop_shop_per_page', 30 );
+
+function lw_loop_shop_per_page( $products ) {
+ $products = 9;
+ return $products;
+}
 ?>
